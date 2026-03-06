@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anand Shukla | Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ===== Reset ===== */
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial; scroll-behavior: smooth;}
+body { background: url('main.png') center/cover no-repeat; color:#333; }
+
+/* ===== Banner ===== */
+.banner { width:100%; height:250px; background: url('shukla.png') center/cover no-repeat; }
+
+/* ===== About ===== */
+.about { max-width:900px; margin:30px auto; background: rgba(255,255,255,0.95); padding: 30px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.2); transform-style: preserve-3d; transition: transform 0.5s;}
+.about:hover { transform: rotateY(10deg) rotateX(5deg);}
+.about h2 { text-align:center; margin-bottom:20px; font-size:2rem;}
+.about p { font-size:1.1rem; line-height:1.8; text-align: justify;}
+
+/* ===== Stats ===== */
+.stats { max-width:400px; margin: 40px auto; background: #ffdd57; padding: 20px 30px; border-radius:15px; text-align:center; font-size:1.5rem; font-weight:bold; color:#222; display:flex; align-items:center; justify-content:center; gap:10px; transform-style: preserve-3d; transition: transform 0.5s;}
+.stats:hover { transform: rotateY(10deg) rotateX(5deg);}
+.stats i { font-size:2rem; color:#ff4b2b; }
+
+/* ===== Tech Section ===== */
+.tech-section { background:white; padding:50px 20px;}
+.tech-heading { text-align:center; margin-bottom:30px;}
+.tech-heading h1 { font-size:2rem; color:#222; display:inline-block; margin-bottom:10px; position: relative;}
+.tech-heading::after { content:'↓'; display:block; font-size:2rem; color:#ff4b9b; margin:5px auto 0;}
+.tech-heading h1::after { content:""; display:block; width:60px; height:3px; background:#ff4b9b; margin:5px auto 0; border-radius:2px;}
+.tech-interests { max-width:1000px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:20px; }
+.tech-box { background:#f9f9f9; padding:20px; border-radius:20px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.2); transform-style: preserve-3d; transition: transform 0.5s, box-shadow 0.5s;}
+.tech-box:hover { transform: rotateY(10deg) rotateX(5deg) translateY(-10px); box-shadow:0 15px 35px rgba(0,0,0,0.3);}
+.tech-box img { width:50px; height:50px; margin-bottom:10px;}
+.tech-box h3 { margin-bottom:10px; font-size:1.2rem; color:#222;}
+.tech-box p { font-size:0.95rem; color:#555; }
+
+/* ===== Project CTA ===== */
+.project-cta { padding:80px 10%; display:flex; justify-content:center; align-items:center; background:url('wood.png') center/cover no-repeat;}
+.cta-box { max-width:700px; text-align:center; padding:40px; background: rgba(0,0,0,0.75); color:white; border-radius:20px; backdrop-filter:blur(10px); box-shadow:0 20px 40px rgba(0,0,0,0.4); transform-style: preserve-3d; transition: transform 0.5s;}
+.cta-box:hover { transform: rotateY(5deg) rotateX(5deg);}
+.cta-box h1 { font-size:2rem; margin-bottom:20px; }
+.cta-box p { color:#ddd; line-height:1.6; margin-bottom:20px;}
+.cta-btn { display:inline-block; padding:12px 30px; background:#0077ff; color:white; border-radius:30px; font-weight:bold; text-decoration:none; transition:0.3s;}
+.cta-btn:hover { background:#0056cc; transform:scale(1.05); }
+
+/* ===== Experience ===== */
+.experience { padding:60px 10%; text-align:center;}
+.exp-card { margin-top:30px; display:flex; flex-wrap:wrap; align-items:center; gap:20px; justify-content:center; background:white; padding:20px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.1); max-width:800px; margin:auto; transform-style: preserve-3d; transition: transform 0.5s;}
+.exp-card:hover { transform: rotateY(5deg) rotateX(5deg);}
+.exp-card img { width:80px; }
+
+/* ===== Education ===== */
+#education { padding:60px 10%; background:#fdfdfd;}
+.education-wrapper { display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
+.education-column { display:flex; flex-direction:column; gap:15px; flex:1; min-width:200px;}
+.flower-line { writing-mode: vertical-rl; text-orientation: mixed; font-size:1.5rem; color:#ff6347; display:flex; align-items:center; justify-content:center; }
+.education-item { background:#fff; padding:15px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition: transform 0.5s, box-shadow 0.5s;}
+.education-item:hover { transform: rotateY(5deg) rotateX(5deg) translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
+
+/* ===== Projects ===== */
+#projects { padding:60px 10%; background:#fdfdfd;}
+.projects-wrapper { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; justify-items:center;}
+.project-card { background:#fff; padding:20px; border-radius:20px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.1); transition: transform 0.5s, box-shadow 0.5s;}
+.project-card:hover { transform: rotateY(5deg) rotateX(5deg) translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,0.2);}
+.project-card h3 { font-size:1.2rem; margin-bottom:8px;}
+.project-card p { font-size:0.95rem; color:#555; line-height:1.4; }
+
+/* ===== Contact ===== */
+#contact { padding:60px 10%; background: linear-gradient(135deg, #ffe6f0, #fff9e6); border-radius:20px; margin-top:40px;}
+.contact-wrapper { display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
+.contact-list { list-style:none; padding:0; flex:1; min-width:220px; display:flex; flex-direction:column; gap:10px;}
+.contact-list li { display:flex; align-items:center; gap:10px; background:#fff; padding:10px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+.contact-link { color:#ff4b2b; text-decoration:none; font-weight:bold;}
+.contact-link:hover { text-decoration:underline;}
+.contact-send { flex:1; min-width:220px; background:#fff; padding:20px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.15);}
+.contact-send form { display:flex; flex-direction:column; gap:10px;}
+.contact-send input, .contact-send textarea { padding:10px; border-radius:10px; border:1px solid #ccc; font-size:1rem; outline:none;}
+.contact-send button { padding:10px 15px; background:linear-gradient(45deg,#ff4b2b,#ff6347); color:#fff; border:none; border-radius:12px; font-weight:bold; font-size:1rem; cursor:pointer; transition:0.3s;}
+.contact-send button:hover { background:#e5533d; transform:scale(1.05); }
+
+/* ===== Thank You Section ===== */
+#thankyou { padding:60px 10%; background: linear-gradient(135deg,#ffe6f0,#fff9e6); text-align:center; border-radius:20px; margin-top:40px;}
+.thankyou-wrapper { display:flex; flex-direction:column; align-items:center; gap:20px;}
+.thankyou-photo { width:120px; height:120px; border-radius:50%; border:5px solid #ff6347; object-fit:cover; box-shadow:0 10px 25px rgba(0,0,0,0.2); transition:0.3s;}
+.thankyou-photo:hover { transform:scale(1.05) rotateY(5deg); }
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+    .about, .stats, .cta-box, .exp-card, .education-item, .project-card, .contact-send { padding:20px; margin:15px;}
+    .about h2, .tech-heading h1, .cta-box h1 { font-size:1.5rem;}
+    .about p, .tech-box p, .project-card p { font-size:0.9rem;}
+    .stats { font-size:1.1rem; gap:5px; }
+    .stats i { font-size:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="banner"></div>
+
+<div class="about">
+    <h2>About Me</h2>
+    <p>
+        Hello! I am <strong>Anand Shukla</strong>, a passionate Software Engineer and Full Stack Developer. 
+        I specialize in creating modern and responsive web applications using HTML, CSS, JavaScript, 
+        and popular frameworks. I enjoy solving complex problems and building solutions that make 
+        a difference. In my free time, I explore new technologies, contribute to projects, and 
+        keep enhancing my skills in full stack development.
+    </p>
+</div>
+
+<div class="stats">
+    <i class="fas fa-rocket"></i> 200+ Problems Solved
+</div>
+
+<div class="tech-section">
+    <div class="tech-heading"><h1>MY TECHNICAL INTERESTS</h1></div>
+    <div class="tech-interests">
+        <div class="tech-box"><img src="html.png"><h3>HTML</h3><p>Markup language for web pages</p></div>
+        <div class="tech-box"><img src="css.png"><h3>CSS</h3><p>Styling and layout</p></div>
+        <div class="tech-box"><img src="js.png"><h3>JavaScript</h3><p>Interactive web programming</p></div>
+        <div class="tech-box"><img src="python.png"><h3>Python</h3><p>General purpose programming</p></div>
+        <div class="tech-box"><img src="c.png"><h3>C++</h3><p>Algorithms & OOP</p></div>
+        <div class="tech-box"><img src="java.png"><h3>Java</h3><p>Backend & enterprise apps</p></div>
+    </div>
+</div>
+
+<section class="project-cta">
+<div class="cta-box">
+<h1>I'M READY FOR YOUR NEXT PROJECT</h1>
+<p>I love working on new projects and building modern web applications. Let's collaborate!</p>
+<a href="#contact" class="cta-btn"><i class="fa-solid fa-user"></i> CONTACT ME</a>
+</div>
+</section>
+
+<section class="experience">
+<h2>Experience</h2>
+<div class="exp-card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg">
+<div>
+<h3>Generative AI Intern</h3>
+<p>IBM SkillsBuild Program. Completed training and hands-on learning in Generative AI, AI tools, and modern AI applications.</p>
+</div>
+</div>
+</section>
+
+<section id="education">
+<div class="education-wrapper">
+<div class="education-column left">
+<div class="education-item">
+<h3>Senior Secondary (12th) - Science</h3>
+<p>Madhavendra Inter College, Prayagraj | 2024-25</p>
+<p>Physics, Chemistry, Mathematics. 93.6% marks.</p>
+</div>
+<div class="education-item">
+<h3>High School (10th)</h3>
+<p>Saroj Vidya Shankar, Prayagraj | 2021-22</p>
+<p>Completed High School with Science Stream. 86% marks.</p>
+</div>
+</div>
+<div class="flower-line">🌸🌺🌼🌷🌸🌺🌼</div>
+<div class="education-column right">
+<div class="education-item">
+<h3>Bachelor of Technology (B.Tech) - Computer Science</h3>
+<p>United College of Engineering and Research, Prayagraj | 2024-28</p>
+<p>Software Development, Web Technologies, AI. First Class.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<div class="projects-wrapper">
+<div class="project-card"><h3>Translator</h3><p>A web-based translation tool supporting multiple languages with real-time translation.</p></div>
+<div class="project-card"><h3>Stack Market Predictor</h3><p>AI-based stock market prediction platform with real-time analytics and forecasting.</p></div>
+<div class="project-card"><h3>Felicity</h3><p>Task management and productivity web application for personal and team projects.</p></div>
+</div>
+</section>
+
+<section id="contact">
+<div class="contact-wrapper">
+<ul class="contact-list">
+<li><i class="fas fa-phone"></i> <a href="tel:+918467063125" class="contact-link">+91 8467063125</a></li>
+<li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918467063125" target="_blank" class="contact-link">Chat on WhatsApp</a></li>
+<li><i class="fas fa-envelope"></i> <a href="mailto:anandshukla05993@gmail.com" class="contact-link">anandshukla05993@gmail.com</a></li>
+<li><i class="fab fa-instagram"></i> <a href="https://instagram.com/anandgarg9524" target="_blank" class="contact-link">Instagram</a></li>
+<li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/anand-shukla-b9b098328/" target="_blank" class="contact-link">LinkedIn</a></li>
+</ul>
+<div class="contact-send">
+<form id="contactForm">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+<input type="text" id="phone" placeholder="Your Phone (optional)">
+<textarea id="message" placeholder="Your Message" required></textarea>
+<button type="submit">Send</button>
+</form>
+</div>
+</div>
+</section>
+
+<section id="thankyou">
+<div class="thankyou-wrapper">
+<img src="Screenshot 2026-03-06 154903.png" alt="Anand Shukla" class="thankyou-photo">
+<h2>🙏 Thank You!</h2>
+<p>Thank you for visiting my portfolio. I look forward to collaborating with you on amazing projects!</p>
+</div>
+</section>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+e.preventDefault();
+const name=document.getElementById('name').value.trim();
+const email=document.getElementById('email').value.trim();
+const phone=document.getElementById('phone').value.trim();
+const message=document.getElementById('message').value.trim();
+if(!name||!email||!message){alert("Please fill all required fields!");return;}
+const myNumber="+918467063125";
+let text=`Hello Anand! I have a new message:\n\nName: ${name}\nEmail: ${email}`;
+if(phone) text+=`\nPhone: ${phone}`;
+text+=`\nMessage: ${message}`;
+const whatsappURL=`https://wa.me/${myNumber}?text=${encodeURIComponent(text)}`;
+window.open(whatsappURL,"_blank");
+document.getElementById('contactForm').reset();
+});
+</script>
+
+</body>
+</html>
